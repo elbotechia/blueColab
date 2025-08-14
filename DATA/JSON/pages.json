@@ -1,0 +1,22 @@
+[   
+        {
+        "id":"landing",
+        "title": "BEM-VINDO ao IColab.Maua!",
+        "slogan": "Conheça sobre o IColab.Maua e suas funcionalidades.",
+        "bgList": ["assets/images/bg01.svg"]
+    }
+        ,
+
+        {
+        "id":"home",
+        "title": "IColab.Maua!",
+        "slogan": "Somos um espaço educacional COLABORATIVO, INOVADOR e LIVRE para o Núcleo CEUN-IMT!",
+        "bgList": ["assets/images/bg01.svg"]
+    },
+    {
+        "id":"about",
+        "title": "SOBRE NÓS!",
+        "slogan": "Somos um espaço educacional COLABORATIVO, INOVADOR e LIVRE para o Núcleo CEUN-IMT!",
+        "bgList": ["assets/images/bg01.svg"]
+    }
+]

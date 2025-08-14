@@ -1,0 +1,10 @@
+[
+    {
+        "id": "ITM-0001-a-0000000000001",
+        "title":"AULA 1: INTRODUÇÃO A CURVAS, VETORES E SUPERFÍCIES",
+        "content": "Nesta aula, vamos explorar os conceitos básicos de curvas, vetores e superfícies.",
+        "week":1,
+        "order":1,
+        "group": "EFB111"
+    }
+]
