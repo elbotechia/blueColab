@@ -19,4 +19,18 @@
         "slogan": "Somos um espaço educacional COLABORATIVO, INOVADOR e LIVRE para o Núcleo CEUN-IMT!",
         "bgList": ["assets/images/bg01.svg"]
     }
+,
+        {
+        "id":"signin",
+        "title": "LOGIN",
+        "slogan": "Somos um espaço educacional COLABORATIVO, INOVADOR e LIVRE para o Núcleo CEUN-IMT!",
+        "bgList": ["/assets/images/bg02.svg"]
+    }
+    ,
+        {
+        "id":"signup",
+        "title": "CADASTRO",
+        "slogan": "FAÇA SEU CADASTRO para COLABORAR COM o IColab.Maua!",
+        "bgList": ["/assets/images/bg01.svg"]
+    }
 ]

@@ -5,7 +5,7 @@ import knex from "knex";
 export const db = knex({
   client: "sqlite3",
   connection: {
-    filename: process.env.DB_FILE_PATH || "src/database/database.db",
+    filename: process.env.DB_FILE_PATH || "DATA/DB/db.db",
   },
   useNullAsDefault: true,
   pool: {

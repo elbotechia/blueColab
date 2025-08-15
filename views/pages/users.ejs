@@ -1,0 +1,12 @@
+
+    <main>
+        <% if(page.id === "signin") { %>
+                  <%-include('../sections/heroes/hero.ejs') %>
+
+            <%-include('../sections/forms/signIn.ejs') %>
+        <% } else if(page.id === "signup") { %>
+            <h1>Welcome to the Sign Up Page</h1>
+            <p>Please fill in the form to create an account.</p>
+            <!-- Aqui você pode adicionar o formulário de signup -->
+        <% } %>
+    </main>

@@ -1,0 +1,23 @@
+[
+    {
+        "path": "DATA/JSON/auditoriaPages.json",
+        "description": "Auditoria de páginas JSON",
+        "type": "json"
+    },
+    {
+        "path": "src/routes/auth/usersRouter.js",
+        "description": "Roteador de usuários para autenticação",
+        "type": "js"
+    },
+    {
+        "path": "DATA/JSON/pages.json",
+        "description": "Configuração de páginas do site",
+        "type": "json"
+    },
+    {
+        "path": "public/stylesheets/style.css",
+        "description": "Estilos CSS para o site",
+        "type": "css"
+    
+    }
+]

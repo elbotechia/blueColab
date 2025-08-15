@@ -1,5 +1,10 @@
    <main class="container">
        <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-           <h2><%=page.title%></h2>
+          <%- include("../sections/heroes/hero.ejs", {page: page}) %>
+       </section>
+       <section class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <%- include("../sections/values.ejs") %>
+          </div>
        </section>
    </main>
