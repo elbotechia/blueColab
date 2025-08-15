@@ -5,13 +5,13 @@ const navOption1 = ()=>{
                         <a class="menu-link" href="/home">Home</a>
                     </li>
                      <li class="menu-item">
-                        <a class="menu-link" href="/About">About</a>
+                        <a class="menu-link" href="/about">Sobre Nós</a>
                     </li>
                     <li class="menu-item">
-                        <a class="menu-link" href="/sign-in">Login</a>
+                        <a class="menu-link" href="/users/sign-in">Login</a>
                     </li>
                      <li class="menu-item">
-                        <a class="menu-link" href="/sign-up">Cadastro</a>
+                        <a class="menu-link" href="/users/sign-up">Cadastro</a>
                     </li>
                 </ul>
         `)

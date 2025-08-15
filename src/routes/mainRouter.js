@@ -4,6 +4,7 @@ import AulasRouter from "./aulasRouter.js";
 import ApiRouter from "./apiRouter.js";
 import StorageRouter from "./storageRouter.js";
 import itemsRouter from "./itemsRouter.js";
+import UsersRouter from "./auth/usersRouter.js";
 
 class MainRouter {
     constructor() {
@@ -12,6 +13,7 @@ class MainRouter {
         this.storageRouter = new StorageRouter();
         this.aulasRouter = new AulasRouter();
         this.apiRouter = new ApiRouter();
+        this.usersRouter = new UsersRouter();
         this.initRouter();
     }
 
@@ -24,6 +26,7 @@ class MainRouter {
         this.router.use("/storage", this.storageRouter.getRouter());
         this.router.use("/aulas", this.aulasRouter.getRouter());
         this.router.use("/api", this.apiRouter.getRouter());
+        this.router.use("/users", this.usersRouter.getRouter());
              this.router.use("/items", itemsRouter);
     }
 

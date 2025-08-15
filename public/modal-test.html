@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Engine - Teste</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .modal-button {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+        
+        #value1 { background-color: #007bff; }
+        #value1:hover { background-color: #0056b3; }
+        
+        #value2 { background-color: #28a745; }
+        #value2:hover { background-color: #1e7e34; }
+        
+        #value3 { background-color: #ffc107; color: #212529; }
+        #value3:hover { background-color: #e0a800; }
+        
+        #value4 { background-color: #dc3545; }
+        #value4:hover { background-color: #c82333; }
+        
+        .modal-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .description {
+            background: #e9f7ef;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            border-left: 4px solid #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Modal Engine - Teste Corrigido</h1>
+        
+        <div class="description">
+            <h3>✅ Correções Implementadas:</h3>
+            <ul>
+                <li><strong>addEventListener("click")</strong> - Corrigido de "onclick"</li>
+                <li><strong>innerHTML</strong> - Corrigido para renderizar o HTML corretamente</li>
+                <li><strong>Estrutura HTML</strong> - Modal com overlay e container apropriados</li>
+                <li><strong>Event Listeners</strong> - Botões de fechar funcionais</li>
+                <li><strong>CSS Integrado</strong> - Estilização completa dos modals</li>
+            </ul>
+        </div>
+
+        <h2>🎯 Teste os Modals:</h2>
+        
+        <div class="button-group">
+            <button id="value1" class="modal-button">
+                📋 Modal 1
+            </button>
+
+            <button id="value2" class="modal-button">
+                🎉 Modal 2
+            </button>
+
+            <button id="value3" class="modal-button">
+                ⚠️ Modal 3
+            </button>
+
+            <button id="value4" class="modal-button">
+                🚨 Modal 4
+            </button>
+        </div>
+
+        <div class="description">
+            <p><strong>Como funciona:</strong></p>
+            <ol>
+                <li>Clique em qualquer botão para abrir o modal correspondente</li>
+                <li>Use o botão "Fechar" ou clique fora do modal para fechá-lo</li>
+                <li>Cada modal tem conteúdo diferente baseado no array de modals</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Container onde o modal será renderizado -->
+    <div id="modalValue"></div>
+
+    <!-- Carregar a engine do modal -->
+    <script type="module">
+        import valuesEngine from './js/engines/valuesEngine.js';
+        
+        // Inicializar a engine quando a página carregar
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                // Simular que estamos na página home para ativar os modals
+                // Modificar temporariamente a URL
+                window.history.pushState({}, '', '/home');
+                
+                // Executar a engine
+                await valuesEngine();
+                
+                console.log('✅ Modal Engine carregada e inicializada com sucesso!');
+                
+            } catch (error) {
+                console.error('❌ Erro ao carregar Modal Engine:', error);
+            }
+        });
+    </script>
+</body>
+</html>
