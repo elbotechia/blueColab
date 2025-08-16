@@ -14,7 +14,7 @@ CREATE TABLE Pessoas (
 
 
 INSERT INTO Pessoas (nome_referencial, tipo, role, username, email_institucional, password_hash)
-VALUES ('ÉRIK LUÍS MENDONÇA BOTECHIA DE JESUS LEITE', 'PF', 'ADMIN', 'elbotechia', '24.019050-4@maua.br', '$2y$12$ag10/IoZGKgJwFsilKQUz.bU.xlZx46SeGg1j5KPpmE9XJRaTv/mu');
+VALUES ('ÉRIK LUÍS MENDONÇA BOTECHIA DE JESUS LEITE', 'PF', 'ADMIN', 'ASTRODEV', '24.019050-4@maua.br', '$2y$12$ag10/IoZGKgJwFsilKQUz.bU.xlZx46SeGg1j5KPpmE9XJRaTv/mu');
 -- sebga defaykt é CPF IY CNPJ COM PONTOS E TRAÇOS
 
 SELECT * FROM Pessoas;
@@ -62,7 +62,7 @@ CREATE TABLE Account (
 SELECT * FROM Account;
 
 INSERT INTO "Account" ("idPessoa_Pessoa", username, email)
-VALUES (1, 'elbotechia', '24.01905-4@maua.br');
+VALUES (1, 'ASTRODEV', '24.01905-4@maua.br');
 SELECT
     pessoa.idPessoa,
     pessoa.email_institucional,

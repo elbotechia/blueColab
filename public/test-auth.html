@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste AuthController</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        .test-button {
+            background-color: #28a745;
+        }
+        
+        .test-button:hover {
+            background-color: #1e7e34;
+        }
+        
+        .response {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+        }
+        
+        .response.success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        
+        .response.error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Teste do AuthController</h1>
+        
+        <div style="margin-bottom: 30px;">
+            <button type="button" class="test-button" onclick="testAuthRouter()">
+                🔍 Testar Rota Auth
+            </button>
+            <p><small>Primeiro teste: verificar se a rota /auth/test está funcionando</small></p>
+        </div>
+
+        <h2>📝 Cadastro de Usuário</h2>
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="nome_referencial">Nome Referencial:</label>
+                <input type="text" id="nome_referencial" name="nome_referencial" value="João Silva" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" value="joao_silva" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email_institucional">Email Institucional:</label>
+                <input type="email" id="email_institucional" name="email_institucional" value="joao@instituicao.edu.br" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" value="MinhaSenh@123" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirmPassword">Confirmar Senha:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" value="MinhaSenh@123" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="tipo">Tipo:</label>
+                <select id="tipo" name="tipo">
+                    <option value="PF">PF - Pessoa Física</option>
+                    <option value="PJ">PJ - Pessoa Jurídica</option>
+                    <option value="CLT">CLT</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="role">Role:</label>
+                <select id="role" name="role">
+                    <option value="USER">USER</option>
+                    <option value="ADMIN">ADMIN</option>
+                    <option value="PROFESSOR">PROFESSOR</option>
+                    <option value="ALUNO">ALUNO</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="location">Localização (opcional):</label>
+                <input type="text" id="location" name="location" value="São Paulo, SP">
+            </div>
+            
+            <div class="form-group">
+                <label for="cpf">CPF (opcional):</label>
+                <input type="text" id="cpf" name="cpf" value="123.456.789-00" placeholder="000.000.000-00">
+            </div>
+            
+            <button type="submit">🚀 Cadastrar Usuário</button>
+        </form>
+        
+        <div id="response"></div>
+    </div>
+
+    <script>
+        // Função para testar se a rota auth está funcionando
+        async function testAuthRouter() {
+            try {
+                const response = await fetch('/auth/test');
+                const data = await response.json();
+                
+                const responseDiv = document.getElementById('response');
+                responseDiv.className = 'response ' + (response.ok ? 'success' : 'error');
+                responseDiv.textContent = JSON.stringify(data, null, 2);
+                
+            } catch (error) {
+                const responseDiv = document.getElementById('response');
+                responseDiv.className = 'response error';
+                responseDiv.textContent = 'Erro: ' + error.message;
+            }
+        }
+
+        // Função para enviar o formulário de cadastro
+        document.getElementById('signupForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            try {
+                const response = await fetch('/auth/sign-up', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                const responseDiv = document.getElementById('response');
+                responseDiv.className = 'response ' + (response.ok ? 'success' : 'error');
+                responseDiv.textContent = JSON.stringify(result, null, 2);
+                
+            } catch (error) {
+                const responseDiv = document.getElementById('response');
+                responseDiv.className = 'response error';
+                responseDiv.textContent = 'Erro: ' + error.message;
+            }
+        });
+    </script>
+</body>
+</html>

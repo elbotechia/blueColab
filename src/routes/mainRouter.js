@@ -5,7 +5,7 @@ import ApiRouter from "./apiRouter.js";
 import StorageRouter from "./storageRouter.js";
 import itemsRouter from "./itemsRouter.js";
 import UsersRouter from "./auth/usersRouter.js";
-
+import { AuthRouter } from "./auth/authRouter.js";
 class MainRouter {
     constructor() {
         this.router = express.Router();
@@ -14,6 +14,7 @@ class MainRouter {
         this.aulasRouter = new AulasRouter();
         this.apiRouter = new ApiRouter();
         this.usersRouter = new UsersRouter();
+        this.authRouter = new AuthRouter();
         this.initRouter();
     }
 
@@ -27,7 +28,8 @@ class MainRouter {
         this.router.use("/aulas", this.aulasRouter.getRouter());
         this.router.use("/api", this.apiRouter.getRouter());
         this.router.use("/users", this.usersRouter.getRouter());
-             this.router.use("/items", itemsRouter);
+        this.router.use("/items", itemsRouter);
+        this.router.use("/auth", this.authRouter.getRouter());
     }
 
     getRouter() {

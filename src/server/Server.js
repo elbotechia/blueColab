@@ -6,6 +6,7 @@ import path from 'path';
 import dbConnect from '../config/mongoose.js';
 import MainRouter from '../routes/mainRouter.js';
 import expressEjsLayouts from 'express-ejs-layouts';
+import { createPessoasTable } from '../database/createTables.js';
 dotenv.config();
 
 export class Server{
@@ -16,35 +17,47 @@ export class Server{
         this.mainPath="/"
         this.mainRouter = new MainRouter();
         this.expressEjsLayouts = expressEjsLayouts;
-        // Middlewares
-        this.middlewares();
+        // Middlewares (agora async)
+        this.initializeServer();
+    }
 
-        // Routes
+    async initializeServer() {
+        await this.middlewares();
         this.routes();
     }
 
 
-    middlewares(){
+    async middlewares(){
            // Connect to the database
         dbConnect();
+        
+        // Inicializar tabela SQLite
+        try {
+            await createPessoasTable();
+            console.log('✅ Banco SQLite inicializado');
+        } catch (error) {
+            console.error('❌ Erro ao inicializar banco SQLite:', error);
+        }
+        
         // CORS
         this.app.use(cors());
 
         // Body parser
         this.app.use(express.json());
+        this.app.use(express.urlencoded({ extended: true })); // ✅ Adicionar para formulários
 
         // Morgan for logging
         this.app.use(morgan('dev'));
 
         // Serve static files
         this.app.use(express.static(path.resolve('public')));
-                this.app.use(express.static(path.resolve('UPLOADS')));
+        this.app.use(express.static(path.resolve('UPLOADS')));
 
-    this.app.set("views", path.resolve("views"));
-    this.app.set("view engine", "ejs");
-    this.app.use(this.expressEjsLayouts);
-    this.app.set('layout', 'layout'); // ou outro nome, sem .ejs
-    this.app.set('layout extractScripts', true); // opcional
+        this.app.set("views", path.resolve("views"));
+        this.app.set("view engine", "ejs");
+        this.app.use(this.expressEjsLayouts);
+        this.app.set('layout', 'layout'); // ou outro nome, sem .ejs
+        this.app.set('layout extractScripts', true); // opcional
 
     }
 
