@@ -11,7 +11,7 @@ class UsersRouter {
         // ✅ Correção: usar os nomes corretos dos métodos do controller
         this.router.get('/sign-in', this.usersController.getSignInPage.bind(this.usersController));
         this.router.get('/sign-up', this.usersController.getSignUpPage.bind(this.usersController));
-        this.router.get('/home', this.usersController.getHome.bind(this.usersController));
+        this.router.get('/recovery', this.usersController.getRecoveryPage.bind(this.usersController));
     }
 
     getRouter() {

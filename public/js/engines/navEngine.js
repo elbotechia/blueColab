@@ -13,6 +13,9 @@ const navOption1 = ()=>{
                      <li class="menu-item">
                         <a class="menu-link" href="/users/sign-up">Cadastro</a>
                     </li>
+                    <li class="menu-item">
+                        <a class="menu-link" href="/users/recovery">Recuperar Conta</a>
+                    </li>
                 </ul>
         `)
 }
