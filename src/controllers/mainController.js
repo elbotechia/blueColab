@@ -1,6 +1,7 @@
 import path from "path";
 import dotenv from "dotenv";
 import fs from "fs";
+import { jsonReader } from "../helpers/helpers.js";
 dotenv.config();
 
 const PATH_2_VIEWS = process.env.VIEWS_DIRECTORY || path.resolve("views")
@@ -28,7 +29,8 @@ export class MainController {
 
     async getHome(req, res) {
         try {
-            const pages = JSON.parse(fs.readFileSync(JSON_PAGES, 'utf-8'));
+           const pages = await jsonReader("pages");
+           
             res.render("pages/home", { page: pages.find(page => page.id === "home") });
         } catch (error) {
             throw new Error(`Error in MainController.getMain: ${error.message}`);

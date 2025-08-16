@@ -28,10 +28,10 @@ export class UsersControllers {
         }
     }
 
-    async getHome(req, res) {
+    async getRecoveryPage(req, res) {
         try {
             const pages = JSON.parse(fs.readFileSync(JSON_PAGES, 'utf-8'));
-            res.render("pages/home", { page: pages.find(page => page.id === "home") });
+            res.render("pages/users", { page: pages.find(page => page.id === "recovery") });
         } catch (error) {
             throw new Error(`Error in MainController.getMain: ${error.message}`);
         }

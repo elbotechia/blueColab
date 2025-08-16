@@ -28,9 +28,16 @@
     }
     ,
         {
+        "id":"recovery",
+        "title": "RECUPERAR CONTA",
+        "slogan": "FAÇA A RECUPERAÇÃP DA SUA CONTA NO IColab.Maua!",
+        "bgList": ["/assets/images/bg03.svg"]
+    }
+
+    ,{
         "id":"signup",
         "title": "CADASTRO",
         "slogan": "FAÇA SEU CADASTRO para COLABORAR COM o IColab.Maua!",
-        "bgList": ["/assets/images/bg01.svg"]
+        "bgList": ["/assets/images/bg03.svg"]
     }
 ]

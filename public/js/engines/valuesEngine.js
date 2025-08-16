@@ -12,6 +12,9 @@ const renderModalContent = (modal) => {
                 </div>
                 <div class="modal-body">
                     <p>${content}</p>
+                    <div style="text-align: center;">
+                        <img src="${modal.imgModal}" alt="${title}" style="max-width: 100%; height: auto; margin-top: 15px;">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -24,23 +27,27 @@ const valuesEngine = async () => {
     const modals = [
         {
             id: "modal1",
-            title: "Modal 1",
-            content: "Content for Modal 1"
+            title: "Comunidade",
+            content: "Participe da nossa comunidade de Educação Colaborativa para um Aprendizado Compartilhado, Leve e Eficaz!",
+            imgModal: "/assets/images/modal1.svg"
         },
         {
             id: "modal2",
             title: "Modal 2",
-            content: "Content for Modal 2"
+            content: "Content for Modal 2",
+            imgModal: "/assets/images/modal2.svg"   
         },
         {
             id: "modal3",
             title: "Modal 3",
-            content: "Content for Modal 3"
+            content: "Content for Modal 3",
+            imgModal: "/assets/images/modal3.svg"
         },
         {
             id: "modal4",
             title: "Modal 4",
-            content: "Content for Modal 4"
+            content: "Content for Modal 4",
+            imgModal: "/assets/images/modal4.svg"
         }
     ];
 
